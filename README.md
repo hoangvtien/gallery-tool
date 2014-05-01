@@ -16,3 +16,4 @@ Dùng chức năng cài đặt và đóng gói tự động trong admin để th
 ## Change Logs
 ### 3.4.01
 * Các chức năng cơ bản.
+* Tích hợp block global.marquee.php với hiệu ứng marquee, sử dụng plugin tại https://github.com/aamirafridi/jQuery.Marquee
