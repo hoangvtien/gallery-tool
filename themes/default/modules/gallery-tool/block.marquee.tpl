@@ -3,7 +3,7 @@
 	<ul>
 		<!-- BEGIN: loop -->
 		<li>
-			<a href="{PIC.link}"><img class="glt-img-thumb" src="{PIC.thumbSmall}" width="{DATA.smallW}" height="{DATA.smallH}" alt="{PIC.title}"/></a>
+			<a href="{PIC.link}"{PIC.rel}><img class="glt-img-thumb" src="{PIC.thumbSmall}" width="{DATA.smallW}" height="{DATA.smallH}" alt="{PIC.title}"/></a>
 		</li>
 		<!-- END: loop -->
 	</ul>

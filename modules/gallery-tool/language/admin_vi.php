@@ -119,5 +119,8 @@ $lang_module['blkMarqueeDuration'] = 'Thời gian mỗi lần chạy';
 $lang_module['blkMarqueeGap'] = 'Khoảng cách giữa hai nội dung nếu nhân đôi';
 $lang_module['blkMarqueePauseOnHover'] = 'Dừng khi rê chuột vào';
 $lang_module['blkMarqueePauseOnCycle'] = 'Thời gian dừng mỗi chu kỳ';
+$lang_module['blkMarqueeClickHandle'] = 'Kiểu xử lý khi nhấn vào ảnh';
+$lang_module['blkMarqueeClickHandle0'] = 'Phóng to ảnh';
+$lang_module['blkMarqueeClickHandle1'] = 'Mở liên kết ảnh (nếu có)';
 
 ?>

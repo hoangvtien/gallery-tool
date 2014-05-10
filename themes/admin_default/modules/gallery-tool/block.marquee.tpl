@@ -62,6 +62,14 @@
 		<input type="text" name="config_pauseOnCycle" class="glt-input glt-col-day" value="{DATA.pauseOnCycle}"/> (ms)
 	</td>
 </tr>
+<tr>
+	<td>{LANG.blkMarqueeClickHandle}</td>
+	<td>
+		<select class="glt-input" name="config_clickHandle">
+			<!-- BEGIN: clickHandle --><option value="{CLICKHANDLE.key}"{CLICKHANDLE.selected}>{CLICKHANDLE.title}</option><!-- END: clickHandle -->
+		</select>
+	</td>
+</tr>
 <tr style="display:none">
 	<td></td>
 	<td>

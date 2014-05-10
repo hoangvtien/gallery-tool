@@ -66,6 +66,13 @@ if( ! nv_function_exists( 'nv_block_glt_marquee' ) )
 			$xtpl->parse( 'main.direction' );
 		}
 		
+		// Kieu xu ly khi an vao anh
+		for( $i = 0; $i <= 1; ++ $i )
+		{
+			$xtpl->assign( 'CLICKHANDLE', array( "key" => $i, 'title' => $GLT->lang('blkMarqueeClickHandle' . $i), "selected" => $i == $data_block['clickHandle'] ? " selected=\"selected\"" : "" ) );
+			$xtpl->parse( 'main.clickHandle' );
+		}
+		
 		$xtpl->parse( 'main' );
 		return $xtpl->text( 'main' );
 	}
@@ -86,6 +93,7 @@ if( ! nv_function_exists( 'nv_block_glt_marquee' ) )
 		$return['config']['duration'] = $nv_Request->get_int( 'config_duration', 'post', 0 );
 		$return['config']['pauseOnHover'] = $nv_Request->get_int( 'config_pauseOnHover', 'post', 0 );
 		$return['config']['pauseOnCycle'] = $nv_Request->get_int( 'config_pauseOnCycle', 'post', 0 );
+		$return['config']['clickHandle'] = $nv_Request->get_int( 'config_clickHandle', 'post', 0 );
 		
 		return $return;
 	}
@@ -136,6 +144,12 @@ if( ! nv_function_exists( 'nv_block_glt_marquee' ) )
 			if( $block_config['js'] )
 			{
 				$GLT->callJqueryPlugin( 'jquery.marquee' );
+				
+				// Goi shadowbox neu cau hinh phong to anh
+				if( empty( $block_config['clickHandle'] ) )
+				{
+					$GLT->callJqueryPlugin( 'shadowbox' );
+				}
 			}
 			
 			$xtpl = new XTemplate( 'block.marquee.tpl', NV_ROOTDIR . "/themes/" . $block_theme . "/modules/" . $module_file );
@@ -152,7 +166,8 @@ if( ! nv_function_exists( 'nv_block_glt_marquee' ) )
 			// Xuat anh
 			foreach( $array['pics'] as $pic )
 			{
-				$pic['link'] = $pic['link'] ? $pic['link'] : 'javascript:void(0);';
+				$pic['link'] = empty( $block_config['clickHandle'] ) ? $pic['file'] : ( $pic['link'] ? $pic['link'] : 'javascript:void(0);' );
+				$pic['rel'] = empty( $block_config['clickHandle'] ) ? ' rel="shadowbox[miss]"' : '';
 				
 				$xtpl->assign( 'PIC', $pic );
 				$xtpl->parse( 'main.loop' );
