@@ -15,6 +15,13 @@ define( 'NV_IS_MOD_GLTOOL', true );
 require_once( NV_ROOTDIR . "/modules/" . $module_file . "/class.php" );
 $GLT = new nv_mod_gallery_tool();
 
+/**
+ * gltJsonResponse()
+ * 
+ * @param mixed $error
+ * @param mixed $data
+ * @return void
+ */
 function gltJsonResponse( $error = array(), $data = array() )
 {
 	$contents = array(

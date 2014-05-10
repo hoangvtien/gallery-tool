@@ -9,6 +9,15 @@
 
 if( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
 
+/**
+ * nv_mod_gallery_tool
+ * 
+ * @package GALLERY-TOOL
+ * @author PHAN TAN DUNG (phantandung92@gmail.com)
+ * @copyright 2014
+ * @version 3
+ * @access public
+ */
 class nv_mod_gallery_tool
 {
 	private $lang_data = '';
@@ -35,6 +44,16 @@ class nv_mod_gallery_tool
 	
 	public $setting = null;
 	
+	/**
+	 * nv_mod_gallery_tool::__construct()
+	 * 
+	 * @param string $d
+	 * @param string $n
+	 * @param string $f
+	 * @param string $lang
+	 * @param bool $get_lang
+	 * @return
+	 */
 	public function __construct( $d = "", $n = "", $f = "", $lang = "", $get_lang = false )
 	{
 		global $module_data, $module_name, $module_file, $db_config, $db, $lang_global;
@@ -121,6 +140,11 @@ class nv_mod_gallery_tool
 		$this->js_data['root_site'][] = "<script type=\"text/javascript\" src=\"" . $this->base_site_url . "modules/" . $this->mod_file . "/js/user.js\"></script>\n";
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::get_setting()
+	 * 
+	 * @return
+	 */
 	private function get_setting()
 	{
 		$sql = "SELECT `config_name`, `config_value` FROM `" . $this->table_prefix . "_config`";
@@ -135,36 +159,80 @@ class nv_mod_gallery_tool
 		return $array;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::handle_error()
+	 * 
+	 * @param string $messgae
+	 * @return
+	 */
 	private function handle_error( $messgae = '' )
 	{
 		trigger_error( "Error! " . ( $messgae ? ( string ) $messgae : "You are not allowed to access this feature now" ) . "!", 256 );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::check_admin()
+	 * 
+	 * @return
+	 */
 	private function check_admin()
 	{
 		if( ! defined( 'NV_IS_MODADMIN' ) ) $this->handle_error();
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::nl2br()
+	 * 
+	 * @param mixed $string
+	 * @return
+	 */
 	private function nl2br( $string )
 	{
 		return nv_nl2br( $string );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::db_cache()
+	 * 
+	 * @param mixed $sql
+	 * @param string $id
+	 * @param string $module_name
+	 * @return
+	 */
 	private function db_cache( $sql, $id = '', $module_name = '' )
 	{
 		return nv_db_cache( $sql, $id, $module_name );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::del_cache()
+	 * 
+	 * @param mixed $module_name
+	 * @return
+	 */
 	private function del_cache( $module_name )
 	{
 		return nv_del_moduleCache( $module_name );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::change_alias()
+	 * 
+	 * @param mixed $alias
+	 * @return
+	 */
 	private function change_alias( $alias )
 	{
 		return change_alias( $alias );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::checkJqueryPlugin()
+	 * 
+	 * @param mixed $numargs
+	 * @param mixed $arg_list
+	 * @return
+	 */
 	private function checkJqueryPlugin( $numargs, $arg_list )
 	{
 		$return = array();
@@ -180,6 +248,13 @@ class nv_mod_gallery_tool
 		return $return;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::sortArrayFromArrayKeys()
+	 * 
+	 * @param mixed $keys
+	 * @param mixed $array
+	 * @return
+	 */
 	private function sortArrayFromArrayKeys( $keys, $array )
 	{
 		$return = array();
@@ -194,6 +269,13 @@ class nv_mod_gallery_tool
 		return $return;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::IdHandle()
+	 * 
+	 * @param mixed $stroarr
+	 * @param string $defis
+	 * @return
+	 */
 	private function IdHandle( $stroarr, $defis = "," )
 	{
 		$return = array();
@@ -214,16 +296,34 @@ class nv_mod_gallery_tool
 		return $return;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::getCache()
+	 * 
+	 * @param mixed $cacheFile
+	 * @return
+	 */
 	private function getCache( $cacheFile )
 	{
 		return nv_get_cache( $cacheFile );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::setCache()
+	 * 
+	 * @param mixed $cacheFile
+	 * @param mixed $cache
+	 * @return
+	 */
 	private function setCache( $cacheFile, $cache )
 	{
 		return nv_set_cache( $cacheFile, $cache );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::callJqueryPlugin()
+	 * 
+	 * @return
+	 */
 	public function callJqueryPlugin()
 	{
 		global $my_head;
@@ -243,22 +343,48 @@ class nv_mod_gallery_tool
 		}
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::getJqueryPlugin()
+	 * 
+	 * @return
+	 */
 	public function getJqueryPlugin()
 	{
 		$return = $this->checkJqueryPlugin( func_num_args(), func_get_args() );
 		return implode( "", $return );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::lang()
+	 * 
+	 * @param mixed $key
+	 * @return
+	 */
 	public function lang( $key )
 	{
 		return isset( $this->language[$key] ) ? $this->language[$key] : $key;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::glang()
+	 * 
+	 * @param mixed $key
+	 * @return
+	 */
 	public function glang( $key )
 	{
 		return isset( $this->glanguage[$key] ) ? $this->glanguage[$key] : $key;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::string2array()
+	 * 
+	 * @param mixed $str
+	 * @param string $defis
+	 * @param bool $unique
+	 * @param bool $empty
+	 * @return
+	 */
 	public function string2array( $str, $defis = ",", $unique = false, $empty = false )
 	{
 		if( empty( $str ) ) return array();
@@ -278,6 +404,15 @@ class nv_mod_gallery_tool
 		return $str;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::creatThumb()
+	 * 
+	 * @param mixed $file
+	 * @param mixed $dir
+	 * @param mixed $width
+	 * @param integer $height
+	 * @return
+	 */
 	public function creatThumb( $file, $dir, $width, $height = 0 )
 	{
 		require_once( $this->root_dir . '/includes/class/image.class.php' );
@@ -320,6 +455,12 @@ class nv_mod_gallery_tool
 		return substr( $image->create_Image_info['src'], strlen( $dir . '/' ) );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::buildSQLLids()
+	 * 
+	 * @param mixed $arr
+	 * @return
+	 */
 	public function buildSQLLids( $arr )
 	{
 		if( empty( $arr ) )
@@ -329,6 +470,13 @@ class nv_mod_gallery_tool
 		return '0,' . implode( ',', $arr ) . ',0';
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::getPicsByID()
+	 * 
+	 * @param mixed $id
+	 * @param bool $sort
+	 * @return
+	 */
 	public function getPicsByID( $id, $sort = false )
 	{
 		$pics = array();
@@ -353,6 +501,13 @@ class nv_mod_gallery_tool
 		return $pics;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::getAlbumsByID()
+	 * 
+	 * @param mixed $id
+	 * @param bool $sort
+	 * @return
+	 */
 	public function getAlbumsByID( $id, $sort = false )
 	{
 		$albums = array();
@@ -377,6 +532,12 @@ class nv_mod_gallery_tool
 		return $albums;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::fixPics()
+	 * 
+	 * @param mixed $ids
+	 * @return
+	 */
 	public function fixPics( $ids )
 	{
 		$ids = $this->IdHandle( $ids );
@@ -468,6 +629,12 @@ class nv_mod_gallery_tool
 		}
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::fixAlbums()
+	 * 
+	 * @param mixed $ids
+	 * @return
+	 */
 	public function fixAlbums( $ids )
 	{
 		$ids = $this->IdHandle( $ids );
@@ -494,6 +661,14 @@ class nv_mod_gallery_tool
 		}
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::sqlSearchId()
+	 * 
+	 * @param mixed $id
+	 * @param mixed $field
+	 * @param string $logic
+	 * @return
+	 */
 	public function sqlSearchId( $id, $field, $logic = 'OR' )
 	{
 		$id = $this->IdHandle( $id );
@@ -509,6 +684,12 @@ class nv_mod_gallery_tool
 		return $query;
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::uploadDirInit()
+	 * 
+	 * @param mixed $path
+	 * @return
+	 */
 	public function uploadDirInit( $path )
 	{
 		if( file_exists( $this->root_dir . '/' . $this->upload_dir . '/' . $path ) )
@@ -547,6 +728,12 @@ class nv_mod_gallery_tool
 		return str_replace( $this->root_dir . "/", "", $upload_real_dir_page );
 	}
 	
+	/**
+	 * nv_mod_gallery_tool::getFullAlbum()
+	 * 
+	 * @param mixed $id
+	 * @return
+	 */
 	public function getFullAlbum( $id )
 	{
 		$id = intval( $id );
