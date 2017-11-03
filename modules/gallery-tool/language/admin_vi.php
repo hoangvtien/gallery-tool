@@ -1,14 +1,16 @@
 <?php
 
 /**
- * @Project NUKEVIET GALLERY TOOL 3.x
+ * @Project NUKEVIET GALLERY TOOL 4.x
  * @Author PHAN TAN DUNG (phantandung92@gmail.com)
  * @Copyright (C) 2014 PHAN TAN DUNG. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Language Tiếng Việt
- * @Createdate May 01, 2014, 04:09:03 PM
+ * @Createdate Sunday, October 29, 2017 4:40:39 AM
  */
 
-if( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
+if (!defined('NV_ADMIN') or !defined('NV_MAINFILE'))
+    die('Stop!!!');
 
 $lang_translator['author'] = 'PHAN TAN DUNG (phantandung92@gmail.com)';
 $lang_translator['createdate'] = 'May 01, 2014, 04:09:03 PM';
@@ -24,6 +26,7 @@ $lang_module['select'] = 'Chọn';
 $lang_module['checkall'] = 'Chọn tất cả';
 $lang_module['uncheckall'] = 'Bỏ chọn';
 $lang_module['complete'] = 'Hoàn tất';
+$lang_module['image'] = 'Ảnh';
 
 $lang_module['errorSaveUnknow'] = 'Lỗi lưu dữ liệu';
 $lang_module['errorUpdateUnknow'] = 'Lỗi cập nhật dữ liệu';
@@ -122,5 +125,3 @@ $lang_module['blkMarqueePauseOnCycle'] = 'Thời gian dừng mỗi chu kỳ';
 $lang_module['blkMarqueeClickHandle'] = 'Kiểu xử lý khi nhấn vào ảnh';
 $lang_module['blkMarqueeClickHandle0'] = 'Phóng to ảnh';
 $lang_module['blkMarqueeClickHandle1'] = 'Mở liên kết ảnh (nếu có)';
-
-?>

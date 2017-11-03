@@ -21,13 +21,13 @@
 <tr>
 	<td>{LANG.blkMarqueeDelayBeforeStart}</td>
 	<td>
-		<input type="text" name="config_delayBeforeStart" class="glt-input glt-col-day" value="{DATA.delayBeforeStart}"/> (ms)
+		<input type="text" name="config_delayBeforeStart" class="form-control glt-input glt-col-day" value="{DATA.delayBeforeStart}"/> (ms)
 	</td>
 </tr>
 <tr>
 	<td>{LANG.blkMarqueeDirection}</td>
 	<td>
-		<select name="config_direction" class="glt-input">	
+		<select name="config_direction" class="form-control glt-input">	
 			<!-- BEGIN: direction --><option value="{DIRECTION.key}"{DIRECTION.selected}>{DIRECTION.title}</option><!-- END: direction -->
 		</select>
 	</td>
@@ -41,13 +41,13 @@
 <tr>
 	<td>{LANG.blkMarqueeGap}</td>
 	<td>
-		<input type="text" name="config_gap" class="glt-input glt-col-day" value="{DATA.gap}"/> (px)
+		<input type="text" name="config_gap" class="form-control glt-input glt-col-day" value="{DATA.gap}"/> (px)
 	</td>
 </tr>
 <tr>
 	<td>{LANG.blkMarqueeDuration}</td>
 	<td>
-		<input type="text" name="config_duration" class="glt-input glt-col-day" value="{DATA.duration}"/> (ms)
+		<input type="text" name="config_duration" class="form-control glt-input glt-col-day" value="{DATA.duration}"/> (ms)
 	</td>
 </tr>
 <tr>
@@ -59,24 +59,24 @@
 <tr>
 	<td>{LANG.blkMarqueePauseOnCycle}</td>
 	<td>
-		<input type="text" name="config_pauseOnCycle" class="glt-input glt-col-day" value="{DATA.pauseOnCycle}"/> (ms)
+		<input type="text" name="config_pauseOnCycle" class="form-control glt-input glt-col-day" value="{DATA.pauseOnCycle}"/> (ms)
 	</td>
 </tr>
 <tr>
 	<td>{LANG.blkMarqueeClickHandle}</td>
 	<td>
-		<select class="glt-input" name="config_clickHandle">
+		<select class="form-control glt-input" name="config_clickHandle">
 			<!-- BEGIN: clickHandle --><option value="{CLICKHANDLE.key}"{CLICKHANDLE.selected}>{CLICKHANDLE.title}</option><!-- END: clickHandle -->
 		</select>
 	</td>
 </tr>
 <tr style="display:none">
-	<td></td>
+	<td>&nbsp;</td>
 	<td>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$("a#album-choose").click(function(){
-				nv_open_browse_file( "{NV_BASE_ADMINURL}index.php?" + nv_name_variable + "={MODULE_NAME}&" + nv_fc_variable + "=album-list&findOneAndReturn=1&area=albumTitle&input=config_albumId&multi=0", "NVImg", "850", "620", "resizable=no,scrollbars=no,toolbar=no,location=no,status=no" );
+				nv_open_browse( "{NV_BASE_ADMINURL}index.php?" + nv_name_variable + "={MODULE_NAME}&" + nv_fc_variable + "=album-list&findOneAndReturn=1&area=albumTitle&input=config_albumId&multi=0", "NVImg", "850", "620", "resizable=no,scrollbars=no,toolbar=no,location=no,status=no" );
 			});
 		});
 		</script>

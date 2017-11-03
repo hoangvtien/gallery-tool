@@ -87,7 +87,7 @@ if( ! nv_function_exists( 'nv_block_glt_marquee' ) )
 		$return['config']['albumId'] = $nv_Request->get_int( 'config_albumId', 'post', 0 );
 		$return['config']['js'] = $nv_Request->get_int( 'config_js', 'post', 0 );
 		$return['config']['delayBeforeStart'] = $nv_Request->get_int( 'config_delayBeforeStart', 'post', 0 );
-		$return['config']['direction'] = filter_text_input( 'config_direction', 'post', '', 1, 255 );
+		$return['config']['direction'] = nv_substr( $nv_Request->get_title( 'config_direction', 'post', '', 1 ), 0, 255);
 		$return['config']['duplicated'] = $nv_Request->get_int( 'config_duplicated', 'post', 0 );
 		$return['config']['gap'] = $nv_Request->get_int( 'config_gap', 'post', 0 );
 		$return['config']['duration'] = $nv_Request->get_int( 'config_duration', 'post', 0 );
@@ -183,5 +183,3 @@ if( defined( 'NV_SYSTEM' ) )
 {
 	$content = nv_block_glt_marquee( $block_config );
 }
-
-?>

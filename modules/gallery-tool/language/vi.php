@@ -24,5 +24,3 @@ $lang_module['uploadErrorFileNoExist'] = 'Lỗi: Tệp tải lên không tồn t
 $lang_module['uploadUnknowError'] = 'Lỗi không xác định';
 $lang_module['uploadErrorFile'] = 'Lỗi: Tệp tải lên không hợp lệ';
 $lang_module['uploadErrorRenameFile'] = 'Lỗi: Không thể đổi tên file tải lên';
-
-?>

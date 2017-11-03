@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<div id="getuidcontent">
-			<form id="formgetuid" method="get" action="{FORM_ACTION}">
+			<form class="form-inline" id="formgetuid" method="get" action="{FORM_ACTION}">
 			<input type="hidden" name="{NV_NAME_VARIABLE}" value="{MODULE_NAME}" />
 			<input type="hidden" name="{NV_OP_VARIABLE}" value="{OP}" />
 			<input type="hidden" name="findOneAndReturn" value="1" />
@@ -23,14 +23,12 @@
 			<input type="hidden" name="area" value="{RETURNAREA}" />
 			<input type="hidden" name="input" value="{RETURNINPUT}" />
 			<input type="hidden" name="multi" value="{MULTI}" />
-			<table class="tab1">
-				<tbody class="second">
-					<tr><td colspan="8" class="center green"><strong>{LANG.albumFindTitle}</strong></td></tr>
-				</tbody>
+			<table class="table table-striped table-bordered table-hover">
 				<tbody>
+					<tr><td colspan="8" class="center green"><strong>{LANG.albumFindTitle}</strong></td></tr>
 					<tr>
 						<td>{LANG.albumTitle}</td>
-						<td><input class="glt-input glt-txt-fh" type="text" name="q" value="{SEARCH.q}"/></td>
+						<td><input class="form-control glt-input glt-txt-fh" type="text" name="q" value="{SEARCH.q}"/></td>
 						<td class="glt-col-status"><input type="submit" name="submit" value="{LANG.search}" class="glt-button"/></td>
 						<td class="glt-col-status"><input type="button" onclick="window.location='{URLCANCEL}';" value="{LANG.filter_cancel}" class="glt-button"/></td>
 					</tr>
@@ -39,7 +37,7 @@
 			</form>
 		</div>
 		<div id="resultdata">
-			<table class="tab1">
+			<table class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr>
 						<td class="glt-col-id center">ID</td>
@@ -49,24 +47,24 @@
 						<td class="center glt-col-feature">{LANG.select}</td>
 					</tr>
 				</thead>
+				<tbody>
 				<!-- BEGIN: row -->
-				<tbody{CLASS}>
 					<tr>
-						<td class="center"><strong>{ROW.id}</strong></td>
+						<td class="text-center"><strong>{ROW.id}</strong></td>
 						<td>{ROW.title}</td>
-						<td>{ROW.bigW}x{ROW.bigH} px - {ROW.smallW}x{ROW.smallH} px</td>
-						<td>{ROW.numPics}</td>
-						<td class="center"><a class="glt-select-icon nounderline" title="{LANG.select}" onclick="nv_close_pop('{ROW.id}', '{ROW.title}');" href="javascript:void(0);">{LANG.select}</a></td>
+						<td>{ROW.bigw}x{ROW.bigh} px - {ROW.smallw}x{ROW.smallh} px</td>
+						<td>{ROW.numpics}</td>
+						<td class="text-center"><a class="glt-select-icon nounderline" title="{LANG.select}" onclick="nv_close_pop('{ROW.id}', '{ROW.title}');" href="javascript:void(0);">{LANG.select}</a></td>
 					</tr>
-				</tbody>
 				<!-- END: row -->
+				</tbody>
 				<!-- BEGIN: generate_page -->
 				<tbody>
 					<tr>
-						<td colspan="4" class="center">{GENERATE_PAGE}</td>
+						<td colspan="4" class="text-center">{GENERATE_PAGE}</td>
 					</tr>
-				</tbody>
 				<!-- END: generate_page -->
+				</tbody>
 			</table>
 			<script type="text/javascript">
 			function nv_close_pop( id, name ){
